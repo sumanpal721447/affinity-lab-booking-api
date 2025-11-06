@@ -69,16 +69,6 @@ namespace PATHLAB.Controllers
             var result = _db.ExecuteStoredProcedure("PROC_G_CustomerFeedback");
             return Ok(result);
         }
-
-
-
-        [HttpPost("AddDepartment")]
-        [Authorize(AuthenticationSchemes = "Bearer")]
-        public IActionResult AddDepartment([FromBody] string deptName)
-        {
-            var param = new SqlParameter("@DepartmentName", deptName);
-            var result = _db.ExecuteStoredProcedure("AddDepartment", param);
-            return Ok(new { Message = "Department added successfully" });
-        }
+                
     }
 }
